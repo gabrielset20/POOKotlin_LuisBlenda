@@ -1,9 +1,6 @@
 package Estoque
 
-import model.Marca
-import model.Produto
-import model.ItemProduto
-import model.Genero
+import model .*
 
 class Estoque {
     private val itens = mutableListOf<ItemProduto>()
@@ -26,5 +23,9 @@ class Estoque {
 
     fun qtdItens(): Int {
         return itens.size
+    }
+
+    fun removeAllItensVencidos() {
+        itens.removeAll { !it.valido() }
     }
 }

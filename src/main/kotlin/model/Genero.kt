@@ -1,33 +1,23 @@
 package model
 
-abstract class Genero(val nome: String) {
-    abstract fun get(): String
-    abstract fun set(value: String)
-}
-
-class Leite(nome: String) : Genero(nome) {
-    override fun get(): String {
+// Classe Genero
+open class Generos(private var nome: String) {
+    // Método getNome
+    fun getNome(): String {
         return nome
     }
 
-    override fun set(value: String) {
+    // Método setNome
+    fun setNome(novoNome: String) {
+        nome = novoNome
     }
 }
 
-class Presunto(nome: String) : Genero(nome) {
-    override fun get(): String {
-        return nome
-    }
+// Classe Presunto
+class Presunto(nome: String) : Generos(nome)
 
-    override fun set(value: String) {
-    }
-}
+// Classe Leite
+class Leite(nome: String) : Generos(nome)
 
-class Achocolatado(nome: String) : Genero(nome) {
-    override fun get(): String {
-        return nome
-    }
-
-    override fun set(value: String) {
-    }
-}
+// Classe Achocolatado
+class Achocolatado(nome: String) : Generos(nome)

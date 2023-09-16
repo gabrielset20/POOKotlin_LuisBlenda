@@ -13,7 +13,7 @@ class AP2Questao1 {
                 val produto = item.produto
                 val dataValidade = item.dataValidade
                 val valido = item.valido()
-                println("${produto.codigo}\t\t${produto.nome}\t\t${produto.genero.nome}\t\t${produto.marca.nome}\t\t${produto.preco}\t\t${dataValidade.getNome()}\t\t$valido")
+                println("${produto.codigo}\t\t${produto.nome}\t\t${produto.genero.getNome()}\t\t${produto.marca.nome}\t\t${produto.preco}\t\t${dataValidade.getNome()}\t\t$valido")
             }
 
             // Exibir o total de itens no estoque

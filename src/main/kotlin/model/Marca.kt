@@ -8,7 +8,6 @@ class Marca {
         get() {
             return field
         }
-
     constructor(nome: String) {
         this.nome = nome
     }

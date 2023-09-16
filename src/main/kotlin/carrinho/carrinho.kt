@@ -29,4 +29,8 @@ class Carrinho {
     fun getItens(): List<ItemProduto> {
         return itensDeProduto
     }
+
+    fun getQuantidade(item: ItemProduto): Int {
+        return itensDeProduto.count { it == item }
+    }
 }

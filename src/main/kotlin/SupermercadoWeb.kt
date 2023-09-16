@@ -5,10 +5,12 @@ import model.*
 class SupermercadoWeb {
     private val estoque = Estoque()
     private val carrinho = Carrinho()
-    private val generos = mutableListOf<Genero>()
+    private val generos = mutableListOf<Generos>()
     private val produtos = mutableListOf<Produto>()
     private val marcas = mutableListOf<Marca>()
     private var codigoProdutoAtual: Int = 1
+    private val carrinhoA = Carrinho()
+    private val carrinhoB = Carrinho()
 
     init {
         iniciaSupermercado()
@@ -38,7 +40,7 @@ class SupermercadoWeb {
             }
 
             for (i in 1..2) {
-                val produto = Produto(codigoProdutoAtual++, "Nescau", 12.50, Marca(nome = "Nestlé"), Presunto("Achocolatado"))
+                val produto = Produto(codigoProdutoAtual++, "Nescau", 12.50, Marca(nome = "Nestlé"), Achocolatado("Achocolatado"))
                 val dataValidade = Data(3, 4, 2023)
                 val item = ItemProduto("codigoAchocolatado2", dataValidade, produto)
                 estoque.entraItem(item)
@@ -55,5 +57,40 @@ class SupermercadoWeb {
 
     fun getEstoque(): Estoque {
         return estoque
+    }
+
+    // Função para obter a quantidade de gêneros únicos dos itens no estoque
+    fun getQuantidadeDeGenerosUnicos(): Int {
+        val generosContados = mutableSetOf<Generos>()
+
+        // Obter todos os itens no estoque
+        val itensNoEstoque = estoque.getItens()
+
+        // Percorrer os itens do estoque
+        for (item in itensNoEstoque) {
+            val genero = item.produto.genero
+
+            // Verificar se o gênero já foi contado
+            if (!generosContados.contains(genero)) {
+                // Adicionar o gênero ao conjunto de gêneros contados
+                generosContados.add(genero)
+            }
+        }
+
+        // Retornar a quantidade de gêneros únicos
+        return generosContados.size
+    }
+
+    fun getCodigoProdutoAtual(): Int {
+        return codigoProdutoAtual
+    }
+
+
+    fun getCarrinhoA(): Carrinho {
+        return carrinhoA
+    }
+
+    fun getCarrinhoB(): Carrinho {
+        return carrinhoB
     }
 }

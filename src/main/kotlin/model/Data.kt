@@ -47,6 +47,17 @@ class Data(private var dia: Int, private var mes: Int, private var ano: Int) {
             val hoje = java.time.LocalDate.now()
             return Data(hoje.dayOfMonth, hoje.monthValue, hoje.year)
         }
+
+        fun fromString(dataString: String): Data {
+            val partes = dataString.split("/")
+            if (partes.size != 3) {
+                throw IllegalArgumentException("Formato de data inválido. Use o formato DD/MM/AAAA.")
+            }
+            val dia = partes[0].toInt()
+            val mes = partes[1].toInt()
+            val ano = partes[2].toInt()
+            return Data(dia, mes, ano)
+        }
     }
 
     val getDia: Int
