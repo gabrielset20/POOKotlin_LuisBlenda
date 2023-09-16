@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/TrabalhoDeFundamentosBasicos.iml" filepath="$PROJECT_DIR$/TrabalhoDeFundamentosBasicos.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/POOKotlin_LuisBlenda-main.iml" filepath="$PROJECT_DIR$/POOKotlin_LuisBlenda-main.iml" />
->>>>>>> 92324f11a8aef1e3e643c7934e0efd6b5565641e
     </modules>
   </component>
 </project>
